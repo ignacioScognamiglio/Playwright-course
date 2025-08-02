@@ -14,7 +14,6 @@ test('frames test', async ({ page }) => {
     await frame.locator('input[name=lname]').fill('lucasplaywright@gmail.com');
     await expect(frame.locator('input[name=lname]')).toHaveValue('lucasplaywright@gmail.com');
 
-    //inner frame are inside the main frame
     //we can access the inner frame by using the frameLocator
     const innerframe = frame.frameLocator("iframe[src='innerframe']")
     await innerframe.locator("input[name='email']").fill('lucasplaywright@gmail.com');

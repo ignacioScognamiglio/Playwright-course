@@ -1,5 +1,4 @@
 import {chromium, test} from '@playwright/test'
-// pass: lucasplaywright
 
 test.only('Login test demo', async () => {
     const browser = await chromium.launch({
@@ -16,7 +15,6 @@ test.only('Login test demo', async () => {
     await page.click('//*[@id="content"]/div/div[2]/div/div/form/input[1]')
     await page.waitForTimeout(3000);
 
-    // i created a new context and page
     const context1 = await browser.newContext();
     const page1 = await context1.newPage();
     await page1.goto('https://ecommerce-playground.lambdatest.io/index.php?route=account/account')

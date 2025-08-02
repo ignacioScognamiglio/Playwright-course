@@ -9,11 +9,10 @@ test('Interact with multiple tabs', async ({page})=>{
         page.click("#followboth")
         ]);
 
-    await multiPages.waitForLoadState(); //without this, the pages will be 2 and not 3 (pages are: lambdatest, facebook, X)
+    await multiPages.waitForLoadState();
     const pages = multiPages.context().pages();
     console.log("No.of pages: " + pages.length);
     
-    //show the URLs of all opened pages
     pages.forEach(tab =>{
         console.log(tab.url());
     })
@@ -33,13 +32,14 @@ test('Interact with multiple tabs', async ({page})=>{
     await facebookTab.fill('#_r_10_', 'lucasscognamiglio9@gmail.com');
     await expect(facebookTab.locator('#_r_10_')).toHaveValue('lucasscognamiglio9@gmail.com');
     
-    //verify the email was filled
     const text = await facebookTab.locator('#_r_10_').inputValue();
     console.log(text);
 
+
+
     //------------------------------------------------------------------------------
     
-    // Interact with a new window
+    // Interact with a single window
     // const [newWindow] = await Promise.all([
     //     page.waitForEvent('popup'),
     //     page.click("text='Follow On Twitter'")
