@@ -18,13 +18,16 @@ Este repositorio contiene los tests automatizados realizados con Playwright como
 ## Cómo ejecutar los tests
 
 1. Instala las dependencias:
-   ```powershell
+   bash
    npm install
-   ```
-2. Ejecuta los tests:
-   ```powershell
-   npx playwright test
-   ```
+   
+2. Instala los navegadores de Playwright:
+   bash
+   npx playwright install
+   
+3. Ejecuta los tests:
+   bash
+   npx playwright test
 
 ## Acceso a los reportes
 

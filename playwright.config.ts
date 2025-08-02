@@ -1,13 +1,13 @@
 import { PlaywrightTestConfig} from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testMatch: ["tests/dropdown.test.ts"],
+  testDir: './tests',
   use: {
-    headless: false,
+    headless: process.env.CI ? true : false,
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
     launchOptions: {
-      slowMo: 500,
+      slowMo: process.env.CI ? 0 : 500,
     },
   },
   reporter: [['dot'], ['json', {
