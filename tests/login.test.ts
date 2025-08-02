@@ -1,6 +1,6 @@
 import {chromium, test} from '@playwright/test'
 
-test.only('Login test demo', async () => {
+test('Login test demo', async () => {
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext();
     const page = await context.newPage();
